@@ -199,7 +199,7 @@ def plot_avg_figures(combined, var_list, label_list, scat_x, scat_y, line_ax1, l
                       size=2, color=".3", linewidth=0)
 
     ax.yaxis.grid(True)
-    ax.set(xlabel="Summer 2017-2020")
+    ax.set(xlabel="All years")
     ax.set_xticklabels(labels=label_list)
     ax.set(ylabel="Daily Avg PM2.5")
     sns.despine(trim=True, left=True)

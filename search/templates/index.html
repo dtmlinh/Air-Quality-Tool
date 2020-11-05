@@ -139,24 +139,6 @@
 
         <div align="center">
             <div id="header">
-                <h3>Census Blocks: Highest level of Monthly and Yearly PM2.5</h3>
-            </div>
-        </div>
-
-            {% if plot_div0 != None and plot_div0 != False %}
-            <div class="results", style="overflow-x:auto;">
-                <table class="aq_plotly">
-                    <tr>
-                    {% for i in plot_div0 %}
-                    <td> {{ i|safe }} </td>
-                    {% endfor %}
-                    </tr>
-                </table>
-            </div>
-            {% endif %}
-
-        <div align="center">
-            <div id="header">
                 <h3>Time Series: Monthly and Yearly PM2.5</h3>
             </div>
         </div>
@@ -167,6 +149,24 @@
                     <tr>
                     {% for i in neigh_plot %}
                      <td> <img src="{% static i %}" width="100%"> </td>
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
+            {% endif %}
+            
+        <div align="center">
+            <div id="header">
+                <h3>Census Blocks: Highest level of Monthly and Yearly PM2.5</h3>
+            </div>
+        </div>
+
+            {% if plot_div0 != None and plot_div0 != False %}
+            <div class="results", style="overflow-x:auto;">
+                <table class="aq_plotly">
+                    <tr>
+                    {% for i in plot_div0 %}
+                    <td> {{ i|safe }} </td>
                     {% endfor %}
                     </tr>
                 </table>

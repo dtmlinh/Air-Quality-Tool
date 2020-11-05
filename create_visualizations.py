@@ -272,7 +272,7 @@ if __name__ == "__main__":
     aq_by_neighborhood = unload_aq('aq_by_neighborhood.csv')
     aq_by_hexagon = unload_aq('aq_by_hexagon.csv')
     aq_by_big_hexagon = unload_aq('aq_by_big_hexagon.csv')
-    
+    '''
     print('Process daily data\n')
     epa_daily, purpleair_outside_only_no_outliers_daily, aq_by_hex_daily = process_daily_data(aq_by_hexagon)
     print('Process 2 miles data\n')
@@ -334,13 +334,13 @@ if __name__ == "__main__":
 
     print('Plot summary by neighborhood (daily)\n')
     plot_functions.plot_summary_by_neighborhood(aq_by_neighborhood, 'Daily')
-    
+    '''
     print('Plot neighborhood\n')
     neighs = list(neighborhoods['pri_neigh'].unique())
     for n in neighs:
         if os.path.isfile(os.path.join(NEIGH_DIR, n + '.csv')):
             neigh_points = pd.read_csv(os.path.join(NEIGH_DIR, n + '.csv'))
-            
+            '''
             neigh_data_lon_lat = create_neighborhood_lon_lat_data(neigh_points)
             print('Plot neighborhood lon_lat_monthly: ', n, '\n')
             monthly = plot_functions.plot_neigh(neigh_data_lon_lat, 'Monthly')
@@ -357,13 +357,14 @@ if __name__ == "__main__":
             neigh_data_block_monthyear = create_neighborhood_block_data(neigh_points, 'MonthYear')
             monthyear = plot_functions.plot_neigh_block(neigh_data_block_monthyear, 'MonthYear')
             monthyear.write_html(os.path.join(STATIC, 'neighs', n + '_block_monthyear.html'), include_plotlyjs=False)
-            
+            '''
             print('Plot neighborhood timeseries_yearly: ', n, '\n')
             neigh_data_timeseries_yearly = create_neighborhood_timeseries_data(neigh_points, 'Yearly')
             fig = pipeline.plot_feature_timeseries(neigh_data_timeseries_yearly, 'Yearly', 'PM2.5', to_avg=True, figsize=(15, 10), barplot=True)
             fig.figure.savefig(os.path.join(STATIC, 'neighs', n + '_timeseries_yearly.png'), transparent=False, bbox_inches='tight')
             print('Plot neighborhood timeseries_monthyear: ', n, '\n')
             neigh_data_timeseries_monthyear = create_neighborhood_timeseries_data(neigh_points, 'MonthYear')
-            fig = pipeline.plot_feature_timeseries(neigh_data_timeseries_monthyear, 'MonthYear', 'PM2.5', to_avg=True, figsize=(15, 10), barplot=False)
+            fig = pipeline.plot_feature_timeseries(neigh_data_timeseries_monthyear, 'MonthYear', 'PM2.5', to_avg=True, figsize=(15, 10), barplot=True)
             fig.figure.savefig(os.path.join(STATIC, 'neighs', n + '_timeseries_monthyear.png'), transparent=False, bbox_inches='tight')
+            
             
