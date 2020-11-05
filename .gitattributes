@@ -1,1 +1,4 @@
 static/graphs/neighs/Loop_block_monthyear.html filter=lfs diff=lfs merge=lfs -text
+static/graphs/neighs/Little[[:space:]]Italy,[[:space:]]UIC_block_monthyear.html filter=lfs diff=lfs merge=lfs -text
+static/graphs/neighs/Lower[[:space:]]West[[:space:]]Side_block_monthyear.html filter=lfs diff=lfs merge=lfs -text
+static/graphs/neighs/West[[:space:]]Loop_block_monthyear.html filter=lfs diff=lfs merge=lfs -text
