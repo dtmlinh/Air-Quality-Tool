@@ -46,7 +46,7 @@
                 <table class="aq_all_years">
                     <tr>
                     {% for i in all_years0 %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -58,7 +58,7 @@
                 <table class="aq_all_years">
                     <tr>
                     {% for i in all_years %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -76,7 +76,7 @@
                 <table class="aq_scatters">
                     <tr>
                     {% for i in scatters %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -88,7 +88,7 @@
                 <table class="aq_timeseries">
                     <tr>
                     {% for i in timeseries %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -100,7 +100,7 @@
                 <table class="aq_heatmaps">
                     <tr>
                     {% for i in heatmaps %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -112,7 +112,7 @@
                 <table class="aq_heatmaps">
                     <tr>
                     {% for i in heatmaps1 %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>
@@ -148,7 +148,7 @@
                 <table class="pa_timeseries">
                     <tr>
                     {% for i in neigh_plot %}
-                     <td> <img src="{{ i }}" width="100%"> </td>
+                     <td> <img src="{% static i %}" width="100%"> </td>
                     {% endfor %}
                     </tr>
                 </table>

@@ -4,13 +4,10 @@ import json
 import os
 import csv
 from plotly.offline import plot
-import urllib
-import requests
 #import plotly.plotly as py
 
 DATA_DIR = os.path.dirname(__file__)
-STATIC = os.path.join(DATA_DIR, '../static')
-URL_STATIC = 'https://chicagoairquality.s3.us-east-2.amazonaws.com/static/'
+STATIC = os.path.join(DATA_DIR, '../static', 'graphs')
 MANUAL_DIR = os.path.join(DATA_DIR, '../data', 'manually_created')
 
 
@@ -119,93 +116,97 @@ def home(request):
                 args['neigh'] = form.cleaned_data['neigh']
 
             if args:
-                context['all_years0'] = [''.join((URL_STATIC, 'graphs/neighborhood_summary_Daily', '.png'))]
+                context['all_years0'] = ['graphs/neighborhood_summary_Daily.png']
 
                 if not context['two_miles']:
                     if context['heatmaps'] and args['year'] != 'None':
-                        context['heatmaps'] = [''.join((URL_STATIC, 'graphs/aq/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
-                        context['heatmaps'].append(''.join((URL_STATIC, 'graphs/aq/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
-                        context['heatmaps'].append(''.join((URL_STATIC, 'graphs/aq/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps'] = [''.join(('graphs/aq/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
+                        context['heatmaps'].append(''.join(('graphs/aq/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps'].append(''.join(('graphs/aq/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
                     else:
                         context['heatmaps'] = False
 
                     if context['scatters'] and args['year'] != 'None': 
-                        context['scatters'] = [''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_', args['year'], '.png'))]
-                        context['scatters'].append(''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_', args['year'], '.png')))
+                        context['scatters'] = [''.join(('graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_', args['year'], '.png'))]
+                        context['scatters'].append(''.join(('graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_', args['year'], '.png')))
                         if context['boxplots']:
-                            context['scatters'].append(''.join((URL_STATIC, 'graphs/aq/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
+                            context['scatters'].append(''.join(('graphs/aq/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
                     else:
                         context['scatters'] = False
 
                     if context['timeseries'] and args['year'] != 'None':
-                        context['timeseries'] = [''.join((URL_STATIC, 'graphs/aq/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
+                        context['timeseries'] = [''.join(('graphs/aq/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
                     else:
                         context['timeseries'] = False
 
                     if context['all_years'] or args['year'] == 'None':
-                        context['all_years'] = [''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
-                        context['all_years'].append(''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
-                        context['all_years'].append(''.join((URL_STATIC, 'graphs/aq/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
+                        context['all_years'] = [''.join(('graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
+                        context['all_years'].append(''.join(('graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
+                        context['all_years'].append(''.join(('graphs/aq/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
 
                 else:
                     if context['heatmaps'] and args['year'] != 'None':
-                        context['heatmaps'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
-                        context['heatmaps'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
-                        context['heatmaps'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
-                        context['heatmaps1'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
-                        context['heatmaps1'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
-                        context['heatmaps1'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps'] = [''.join(('graphs/aq_within_2_miles_epa/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
+                        context['heatmaps'].append(''.join(('graphs/aq_within_2_miles_epa/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps'].append(''.join(('graphs/aq_within_2_miles_epa/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps1'] = [''.join(('graphs/aq_within_2_miles_pa/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
+                        context['heatmaps1'].append(''.join(('graphs/aq_within_2_miles_pa/Heatmap_Daily_Harmful_PM25_Summer_', args['year'], '.png')))
+                        context['heatmaps1'].append(''.join(('graphs/aq_within_2_miles_pa/Heatmap_Daily_Low_PM25_Summer_', args['year'], '.png')))
                     else:
                         context['heatmaps'] = False
                         context['heatmaps1'] = False
 
                     if context['scatters'] and args['year'] != 'None': 
-                        context['scatters'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_', args['year'], '.png'))]
+                        context['scatters'] = [''.join(('graphs/aq_within_2_miles_epa/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_', args['year'], '.png'))]
                         if context['boxplots'] and args['year'] != 'None':
-                            context['scatters'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
-                        context['scatters'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_', args['year'], '.png')))
+                            context['scatters'].append(''.join(('graphs/aq_within_2_miles_epa/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
+                        context['scatters'].append(''.join(('graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_', args['year'], '.png')))
                         if context['boxplots'] and args['year'] != 'None':
-                            context['scatters'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
+                            context['scatters'].append(''.join(('graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_Summer_', args['year'], '.png')))
                     else:
                         context['scatters'] = False
 
                     if context['timeseries'] and args['year'] != 'None':
-                        context['timeseries'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
-                        context['timeseries'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png')))
+                        context['timeseries'] = [''.join(('graphs/aq_within_2_miles_epa/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
+                        context['timeseries'].append(''.join(('graphs/aq_within_2_miles_pa/Timeseries_Daily_Avg_PM25_Summer_', args['year'], '.png')))
                     else:
                         context['timeseries'] = False
 
                     if context['all_years'] or args['year'] == 'None':
-                        context['all_years'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
-                        context['all_years'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
-                        context['all_years'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
-                        context['all_years'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
+                        context['all_years'] = [''.join(('graphs/aq_within_2_miles_epa/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
+                        context['all_years'].append(''.join(('graphs/aq_within_2_miles_epa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
+                        context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
+                        context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
                 
                 if args.get('month', None) and args.get('year', None):
                     m = args.get('month', None)
                     y = args.get('year', None)
 
                     context['month_plot'] = []
-                    f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
-                    context['month_plot'].append(f.text)
+                    print(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'))
+                    f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'), "r")
+                    context['month_plot'].append(f.read())
+                    f.close()
                 
                 if args.get('neigh', None):
                     n = args.get('neigh', None)
 
                     context['neigh_plot'] = []
                     for v in ['yearly', 'monthyear']:
-                        context['neigh_plot'].append(''.join((URL_STATIC, 'graphs/neighs/', n, '_timeseries_', v, '.png')))
+                        context['neigh_plot'].append(os.path.join('graphs/neighs', ''.join((n, '_timeseries_', v, '.png'))))
 
                     context['plot_div0'] = []
                     for v0 in ['yearly', 'monthyear']:
-                        f = requests.get(''.join((URL_STATIC, 'graphs/neighs/', n, '_block_', v0, '.html')))
-                        context['plot_div0'].append(f.text)
+                        f = open(os.path.join(STATIC, 'neighs', ''.join((n, '_block_', v0, '.html'))), "r")
+                        context['plot_div0'].append(f.read())
+                        f.close()
 
                     context['plot_div'] = []
                     for v1 in ['monthly', 'hourly']:
-                        f = requests.get(''.join((URL_STATIC, 'graphs/neighs/', n, '_lon_lat_', v1, '.html')))
-                        context['plot_div'].append(f.text)
-
+                        f = open(os.path.join(STATIC, 'neighs', ''.join((n, '_lon_lat_', v1, '.html'))), "r")
+                        context['plot_div'].append(f.read())
+                        f.close()
+                
     else:
         form = ChartForm()
 
