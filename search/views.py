@@ -56,7 +56,7 @@ class ChartForm(forms.Form):
         required=False, initial=True)
 
     month = forms.ChoiceField(label='Select month for comparison', 
-        choices=[(6, 'Jun'), (7, 'Jul'), (8, 'Aug')], required=False)
+        choices=[(4, 'Apr'), (5, 'May'), (6, 'Jun'), (7, 'Jul'), (8, 'Aug'), (9, 'Sep')], required=False)
 
     neigh = forms.ChoiceField(label='Show neighborhood maps', 
         choices=NEIGHS, required=False, initial='Hyde Park')
