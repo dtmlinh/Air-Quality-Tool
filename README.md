@@ -1,7 +1,7 @@
 # Chicago PM2.5 Project
  
 ## Project Description
-This [prototype tool]https://chicago-air-quality.herokuapp.com/ illustrates and compares 3 different PM 2.5 data sources, by day and neighborhood, in Chicago:
+This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates and compares 3 different PM 2.5 data sources, by day and neighborhood, in Chicago:
 
 - ELPC community monitoring [data](https://airqualitychicago.org/)
 - Environmental Protection Agency public air sample [data](https://aqs.epa.gov/aqsweb/documents/data_api.html)
