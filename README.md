@@ -9,6 +9,6 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 
 Contributors: Linh Dinh
 
-See preliminary analysis results [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
+Preliminary analysis results can be found [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
 
 ![alt-text](app_interface.png)
