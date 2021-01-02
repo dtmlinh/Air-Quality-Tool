@@ -7,7 +7,7 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 - Environmental Protection Agency public air sample [data](https://aqs.epa.gov/aqsweb/documents/data_api.html)
 - Purple Air self-reported [data](https://www2.purpleair.com/)
 
-Contributors: L. Dinh
+Contributors: Linh Dinh
 
 See preliminary analysis results [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
 
