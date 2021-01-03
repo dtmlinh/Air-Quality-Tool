@@ -22,7 +22,7 @@ More detailed (but also preliminary) analysis results can be found [here](https:
 ## Usage
 ## Online Access
 The program was packaged and uploaded online to be accessed [here](https://chicago-air-quality.herokuapp.com/). Graphs and visualizations are stored in S3.
-![alt-text](image/state_energy_search.gif)
+![alt-text](air_quality_tool.gif)
 
 ## Local Access
 ### Activating your environment
