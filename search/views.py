@@ -185,11 +185,21 @@ def home(request):
                     #m = args.get('month', None)
                     y = args.get('year', None)
 
-                    context['month_plot'] = []
-                    for m in (4,5,6,7,8,9):
+                    context['month_plot1'] = []
+                    for m in (4,5):
                         f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
-                        context['month_plot'].append(f.text)
-                
+                        context['month_plot1'].append(f.text)
+
+                    context['month_plot2'] = []
+                    for m in (6,7):
+                        f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
+                        context['month_plot2'].append(f.text)
+
+                    context['month_plot3'] = []
+                    for m in (8,9):
+                        f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
+                        context['month_plot3'].append(f.text)
+
                 if args.get('neigh', None):
                     n = args.get('neigh', None)
 
