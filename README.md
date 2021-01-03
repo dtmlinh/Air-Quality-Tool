@@ -35,21 +35,25 @@ $ pip install -r requirements.txt
 `requirement.txt` contains the required packages to run this program.
 
 ### Running a command in your environment
-Run this command-line to interact with this Django application. 
+Run shell script to launch a command-line utility that lets you interact with this Django project. 
 ```bash
-$ python3 manage.py runserver
+$ ./run_software.sh
 ```
+Adding `-d` will re-pull the data from web scraping and API. If this is run, newer data (up to 14 days ago from run date) will get pulled and appended to the master data files. 
+
+Adding `-g` will recreate graphs from the master data files.
+
 Once the interface is started, you can use it by pointing a browser to `http://127.0.0.1:8000/`.
 
 ## Structure of the software
-1. Data collecting scripts:
-    - `load_geo_files.py`: Retrieve relevant geo/shape files for Chicago. Store this data as .csv files in './data'.
-    - `load_data_files.py`: Crawl EPA, PurpleAir, AirQuality and retrieve all relevant data. Then, combine this data with appropriate geo/shape files to create master data files. Store these master data files as .csv files in './data'.
-    
-2. Helper functions scripts:
+1. Helper functions scripts:
     - `pipeline.py`: General helper functions to process, clean, and aggregate non-specific data.
     - `process_data.py`: Helper functions to process, clean, and aggregate air-quality-specific data (EPA, PurpleAir, AirQuality).
     - `plot_functions.py`: Helper functions to create visualizations from processed data.
-   
+    
+2. Data collecting scripts:
+    - `load_geo_files.py`: Retrieve relevant geo/shape files for Chicago. Store this data as .csv files in './data'. Utilize helper functions above.
+    - `load_data_files.py`: Crawl EPA, PurpleAir, AirQuality and retrieve all relevant data. Then, combine this data with appropriate geo/shape files to create master data files. Store these master data files as .csv files in './data'. Utilize helper functions above. If this script is run, newer data (up to 14 days ago from run date) will get pulled and appended to the master data files. 
+
 3. Data visualization/display scripts:
-    - `create_visualizations.py`: Python script that creates all graphs used by the Django application. If run locally, all the graphs are created and saved in the “static/graphs” folder. 
+    - `create_visualizations.py`: Python script that creates all graphs used by the Django application. If run locally, all the graphs are created and saved in the “static/graphs” folder. Need to be rerun if the data is updated.
