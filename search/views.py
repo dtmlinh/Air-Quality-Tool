@@ -39,13 +39,13 @@ class ChartForm(forms.Form):
     '''
     Creates a class to contain forms for user input.
     '''
-    year = forms.ChoiceField(label='Select year to compare', 
-        choices=YEARS, required=False, initial='2020')
-    all_years = forms.BooleanField(label='Also show summary of all years',
+    all_years = forms.BooleanField(label='Show summary of all years',
         required=False, initial=True)
+
+    year = forms.ChoiceField(label='Select year to drilldown', 
+        choices=YEARS, required=False, initial='2020')
     two_miles = forms.BooleanField(label='Only include AQ readings within 2 mi of an EPA/PA sensor',
         required=False)
-    
     heatmaps = forms.BooleanField(label='Show heatmaps',
         required=False, initial=True)
     timeseries = forms.BooleanField(label='Show timeseries',
@@ -119,8 +119,6 @@ def home(request):
                 args['neigh'] = form.cleaned_data['neigh']
 
             if args:
-                context['all_years0'] = [''.join((URL_STATIC, 'graphs/neighborhood_summary_Daily', '.png'))]
-
                 if not context['two_miles']:
                     if context['heatmaps'] and args['year'] != 'None':
                         context['heatmaps'] = [''.join((URL_STATIC, 'graphs/aq/Heatmap_Daily_Avg_PM25_Summer_', args['year'], '.png'))]
@@ -143,6 +141,7 @@ def home(request):
                         context['timeseries'] = False
 
                     if context['all_years'] or args['year'] == 'None':
+                        context['all_years0'] = [''.join((URL_STATIC, 'graphs/neighborhood_summary_Daily', '.png'))]
                         context['all_years'] = [''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
                         context['all_years'].append(''.join((URL_STATIC, 'graphs/aq/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
                         context['all_years'].append(''.join((URL_STATIC, 'graphs/aq/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
@@ -176,6 +175,7 @@ def home(request):
                         context['timeseries'] = False
 
                     if context['all_years'] or args['year'] == 'None':
+                        context['all_years0'] = [''.join((URL_STATIC, 'graphs/neighborhood_summary_Daily', '.png'))]
                         context['all_years'] = [''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Scatter_Daily_Avg_PM25_AQ_mean_vs_EPA_mean_by_Year', '.png'))]
                         context['all_years'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_epa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
                         context['all_years'].append(''.join((URL_STATIC, 'graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
