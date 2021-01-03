@@ -9,14 +9,18 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 
 Contributors: Linh Dinh
 
-Preliminary analysis results can be found [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
-
-![alt-text](app_interface.png)
-
 ## This tool aims to:
 
 - illustrate the trends of PM 2.5 measurements in the Chicago area for 4 summers: 2017, 2018, 2019, 2020
 - identify days where the discrepancies (in terms of PM 2.5 levels) between AirQuality, EPA, and PurpleAir data are significant and locate the neighborhoods where these discrepancies might be coming from
 - provide a more detailed view into specific neighborhoods, more specifically:
-+ locate blocks with much higher average PM 2.5 levels
-+ identify hours/time periods with much higher average PM 2.5 levels
+  + locate blocks with much higher average PM 2.5 levels
+  + identify hours/time periods with much higher average PM 2.5 levels
+
+## Usage
+## Online Access
+The program was packaged and uploaded online to be accessed [here](https://us-energy-consumption.herokuapp.com/).
+![alt-text](image/state_energy_search.gif)
+
+More detailed analysis results can be found [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
+
