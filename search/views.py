@@ -186,9 +186,9 @@ def home(request):
                     y = args.get('year', None)
 
                     context['month_plot'] = []
-                    #f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
-                    f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_8_year_', str(y), '.html')))
-                    context['month_plot'].append(f.text)
+                    for m in (4,5,6,7,8,9)
+                        f = requests.get(''.join((URL_STATIC, 'graphs/aq/comparison_daily_maps_month_', str(m), '_year_', str(y), '.html')))
+                        context['month_plot'].append(f.text)
                 
                 if args.get('neigh', None):
                     n = args.get('neigh', None)

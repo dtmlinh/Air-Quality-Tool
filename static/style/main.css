@@ -11,6 +11,7 @@ div#header {
     background: #296E01;
     margin: 50;
     padding: 0;
+    color: white;
 }
 
 div#header h1 {
@@ -23,7 +24,7 @@ div#header h1 {
 
 table.states_table {
     margin: 15px;
-    color: white;
+    color: black;
     border: 1px solid black;
     border-collapse: collapse;
     width: 90%;
