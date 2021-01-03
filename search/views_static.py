@@ -36,11 +36,11 @@ class ChartForm(forms.Form):
     '''
     Creates a class to contain forms for user input.
     '''
-    year = forms.ChoiceField(label='Select year for comparison', 
+    year = forms.ChoiceField(label='Select year to compare', 
         choices=YEARS, required=False, initial='2020')
-    all_years = forms.BooleanField(label='Show summary of all years with data',
+    all_years = forms.BooleanField(label='Also show summary of all years',
         required=False, initial=True)
-    two_miles = forms.BooleanField(label='Only include AQ readings w/n 2 mi of an EPA/PA sensor',
+    two_miles = forms.BooleanField(label='Only include AQ readings within 2 mi of an EPA/PA sensor',
         required=False)
     
     heatmaps = forms.BooleanField(label='Show heatmaps',
@@ -52,10 +52,10 @@ class ChartForm(forms.Form):
     boxplots = forms.BooleanField(label='Show boxplots',
         required=False, initial=True)
 
-    #month = forms.ChoiceField(label='Select month for comparison', 
-        #choices=[(4, 'Apr'), (5, 'May'), (6, 'Jun'), (7, 'Jul'), (8, 'Aug'), (9, 'Sep')], required=False)
+    month = forms.ChoiceField(label='Select month to drilldown', 
+        choices=[(4, 'Apr'), (5, 'May'), (6, 'Jun'), (7, 'Jul'), (8, 'Aug'), (9, 'Sep')], required=False)
 
-    neigh = forms.ChoiceField(label='Show neighborhood maps', 
+    neigh = forms.ChoiceField(label='Select neighborhood to drilldown', 
         choices=NEIGHS, required=False, initial='Hyde Park')
 
 
@@ -178,13 +178,12 @@ def home(request):
                         context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
                         context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
                 
-                if args.get('year', None): #and args.get('month', None)
-                    #m = args.get('month', None)
+                if args.get('year', None) and args.get('month', None):
+                    m = args.get('month', None)
                     y = args.get('year', None)
 
                     context['month_plot'] = []
-                    #f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'), "r")
-                    f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_year_' + str(y) + '.html'), "r")
+                    f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'), "r")
                     context['month_plot'].append(f.read())
                     f.close()
                 

@@ -119,11 +119,11 @@
             </div>
             {% endif %}
 
-            {% if month_plot1 != None and month_plot1 != False %}
+            {% if month_plot != None and month_plot != False %}
             <div class="results", style="overflow-x:auto;">
                 <table class="aq_heatmaps">
                     <tr>
-                    {% for i in month_plot1 %}
+                    {% for i in month_plot %}
                      <td> {{ i|safe }} </td>
                     {% endfor %}
                     </tr>
@@ -131,29 +131,6 @@
             </div>
             {% endif %}
 
-            {% if month_plot2 != None and month_plot2 != False %}
-            <div class="results", style="overflow-x:auto;">
-                <table class="aq_heatmaps">
-                    <tr>
-                    {% for i in month_plot2 %}
-                     <td> {{ i|safe }} </td>
-                    {% endfor %}
-                    </tr>
-                </table>
-            </div>
-            {% endif %}
-
-            {% if month_plot3 != None and month_plot3 != False %}
-            <div class="results", style="overflow-x:auto;">
-                <table class="aq_heatmaps">
-                    <tr>
-                    {% for i in month_plot3 %}
-                     <td> {{ i|safe }} </td>
-                    {% endfor %}
-                    </tr>
-                </table>
-            </div>
-            {% endif %}
         <div align="center">
             <div id="header">
                 <h2>By Neighborhood: Maps, Timeseries</h2>
