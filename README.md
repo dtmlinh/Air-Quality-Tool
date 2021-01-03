@@ -45,6 +45,8 @@ Adding `-g` will recreate graphs from the master data files.
 
 Once the interface is started, you can use it by pointing a browser to `http://127.0.0.1:8000/`.
 
+If use locally, replace `search/templates/index.html` with `search/templates/index_static.html` and `search/views.py` with `search/views_static.py`
+
 ## Structure of the software
 1. Helper functions scripts:
     - `pipeline.py`: General helper functions to process, clean, and aggregate non-specific data.
