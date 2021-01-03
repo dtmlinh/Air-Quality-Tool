@@ -21,7 +21,7 @@ More detailed (but also preliminary) analysis results can be found [here](https:
 
 ## Usage
 ## Online Access
-The program was packaged and uploaded online to be accessed [here](https://chicago-air-quality.herokuapp.com/).
+The program was packaged and uploaded online to be accessed [here](https://chicago-air-quality.herokuapp.com/). Graphs and visualizations are stored in S3.
 ![alt-text](image/state_energy_search.gif)
 
 ## Local Access
@@ -45,6 +45,8 @@ Adding `-g` will recreate graphs from the master data files.
 
 Once the interface is started, you can use it by pointing a browser to `http://127.0.0.1:8000/`.
 
+If use locally, replace `search/templates/index.html` with `search/templates/index_static.html` and `search/views.py` with `search/views_static.py`
+
 ## Structure of the software
 1. Helper functions scripts:
     - `pipeline.py`: General helper functions to process, clean, and aggregate non-specific data.
@@ -57,3 +59,11 @@ Once the interface is started, you can use it by pointing a browser to `http://1
 
 3. Data visualization/display scripts:
     - `create_visualizations.py`: Python script that creates all graphs used by the Django application. If run locally, all the graphs are created and saved in the “static/graphs” folder. Need to be rerun if the data is updated.
+
+4. Django scripts: 
+Following the standard structure of a Django application, there are 3 main folders:
+    - `search` folder contains html template and codes to display the correct visualizations selected by the users.
+    - `static` folder contains css style and graphs generated from our data visualization scripts (to be displayed as static components in css structure).
+    - `ui` folder contains Django default setup and scripts.
+ 
+If use locally, replace `search/templates/index.html` with `search/templates/index_static.html` and `search/views.py` with `search/views_static.py`
