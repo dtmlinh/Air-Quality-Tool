@@ -19,8 +19,29 @@ Contributors: Linh Dinh
 
 ## Usage
 ## Online Access
-The program was packaged and uploaded online to be accessed [here](https://us-energy-consumption.herokuapp.com/).
+The program was packaged and uploaded online to be accessed [here](https://chicago-air-quality.herokuapp.com/).
 ![alt-text](image/state_energy_search.gif)
 
-More detailed analysis results can be found [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
+## Local Access
+### Activating your environment
+
+To install the required packages in a new environment:
+```bash
+$ python3 -m venv env
+$ source env/bin/ac
+$ pip install -r requirements.txt
+```
+`requirement.txt` contains the required packages to run our program.
+
+
+### Running a command in your environment
+
+Run shell script to launch a command-line utility that lets you interact with this Django project. 
+```bash
+$ python3 manage.py runserver
+```
+Once the interface is started, you can use it by pointing a browser to `http://127.0.0.1:8000/`.
+
+## Results
+More detailed (but also preliminary) analysis results can be found [here](https://dtmlinh.github.io/bio/blog/2020/11/02/blog-post)
 
