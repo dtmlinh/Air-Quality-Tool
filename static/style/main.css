@@ -2,13 +2,13 @@
 html {
     margin: 00;
     padding: 0;
-    font-family: Arial;
+    font-family: Georgia;
     background-color: #FAFAFA;
 
 }
 
 div#header {
-    background: #2790FF;
+    background: #296E01;
     margin: 50;
     padding: 0;
 }
@@ -18,7 +18,7 @@ div#header h1 {
     color: white;
     margin: 10;
     padding: 10px;
-    font-family: Arial;
+    font-family: Georgia;
 }
 
 table.states_table {
@@ -34,7 +34,7 @@ table.states_table {
 table.states_table th {
     background-color: #80B1FB;
     color: white;
-    font-family: Arial;
+    font-family: Georgia;
     font-size: 14px;
 
 }
