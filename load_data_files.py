@@ -1,7 +1,7 @@
 '''
-Crawl EPA, PurpleAir, AirQuality
-and retrieve all relevant data.
-Store data in csv files in './data'.
+Crawl EPA, PurpleAir, AirQuality and retrieve all relevant data.
+Then, combine this data with appropriate geo/shape files to create master data files.
+Store these master data files as .csv files in './data'.
 '''
 
 import sqlite3

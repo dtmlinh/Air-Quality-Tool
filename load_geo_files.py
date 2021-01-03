@@ -1,7 +1,6 @@
 '''
-Crawl EPA, PurpleAir, AirQuality
-and retrieve all relevant data.
-Store data in csv files in './data'.
+Retrieve relevant geo/shape files for Chicago.
+Store this data as .csv files in './data'.
 '''
 
 import os

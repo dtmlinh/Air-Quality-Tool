@@ -52,8 +52,8 @@ class ChartForm(forms.Form):
     boxplots = forms.BooleanField(label='Show boxplots',
         required=False, initial=True)
 
-    month = forms.ChoiceField(label='Select month for comparison', 
-        choices=[(4, 'Apr'), (5, 'May'), (6, 'Jun'), (7, 'Jul'), (8, 'Aug'), (9, 'Sep')], required=False)
+    #month = forms.ChoiceField(label='Select month for comparison', 
+        #choices=[(4, 'Apr'), (5, 'May'), (6, 'Jun'), (7, 'Jul'), (8, 'Aug'), (9, 'Sep')], required=False)
 
     neigh = forms.ChoiceField(label='Show neighborhood maps', 
         choices=NEIGHS, required=False, initial='Hyde Park')
@@ -109,8 +109,8 @@ def home(request):
                 if form.cleaned_data['all_years']:
                     context['all_years'] = form.cleaned_data['all_years']
 
-                if form.cleaned_data['month']:
-                    args['month'] = form.cleaned_data['month']
+                #if form.cleaned_data['month']:
+                    #args['month'] = form.cleaned_data['month']
                 
             if form.cleaned_data['neigh'] and form.cleaned_data['neigh'] != 'None':
                 args['neigh'] = form.cleaned_data['neigh']
@@ -178,13 +178,13 @@ def home(request):
                         context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Scatter_Daily_Avg_PM25_AQ_mean_vs_PA_mean_by_Year', '.png')))
                         context['all_years'].append(''.join(('graphs/aq_within_2_miles_pa/Boxplot_Daily_Avg_PM25_All_Summers', '.png')))
                 
-                if args.get('month', None) and args.get('year', None):
-                    m = args.get('month', None)
+                if args.get('year', None): #and args.get('month', None)
+                    #m = args.get('month', None)
                     y = args.get('year', None)
 
                     context['month_plot'] = []
-                    print(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'))
-                    f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'), "r")
+                    #f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_month_' + str(m) + '_year_' + str(y) + '.html'), "r")
+                    f = open(os.path.join(STATIC, 'aq', 'comparison_daily_maps_year_' + str(y) + '.html'), "r")
                     context['month_plot'].append(f.read())
                     f.close()
                 
