@@ -9,7 +9,7 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 
 Contributors: Linh Dinh
 
-Frameworks/tools/packages used: Django, Webscraping (Selenium), API Requests, Plotly, Heroku
+Frameworks/tools/packages used: Django, Webscraping (Selenium), API Requests, Plotly, S3, Heroku
 
 ## Objectives
 - illustrate the trends of PM 2.5 measurements in the Chicago area for 4 summers: 2017, 2018, 2019, 2020
