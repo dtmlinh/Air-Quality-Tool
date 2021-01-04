@@ -7,7 +7,7 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 - Environmental Protection Agency public air sample [data](https://aqs.epa.gov/aqsweb/documents/data_api.html)
 - Purple Air self-reported [data](https://www2.purpleair.com/)
 
-Contributor: Linh Dinh
+Contributors: Linh Dinh
 
 Frameworks/tools/packages used: Django, Webscraping (Selenium), API Requests, Plotly, Heroku
 
