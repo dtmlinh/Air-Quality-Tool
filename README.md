@@ -1,6 +1,6 @@
 # Chicago PM2.5 Levels
  
-## Project Description
+## Project Description 
 This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates and compares 3 different PM 2.5 data sources, by day and neighborhood, in Chicago:
 
 - ELPC community monitoring [data](https://airqualitychicago.org/)
@@ -8,6 +8,8 @@ This [prototype tool](https://chicago-air-quality.herokuapp.com/) illustrates an
 - Purple Air self-reported [data](https://www2.purpleair.com/)
 
 Contributors: Linh Dinh
+
+Frameworks/tools/packages used: Django, Webscraping (Selenium), API Requests, Plotly, Heroku
 
 ## Objectives
 - illustrate the trends of PM 2.5 measurements in the Chicago area for 4 summers: 2017, 2018, 2019, 2020
